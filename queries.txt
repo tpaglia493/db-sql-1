@@ -1,0 +1,46 @@
+1. Selezionare tutti gli insegnanti 
+    SELECT * FROM teachers;
+
+2. Selezionare tutti i capi di ogni dipartimento 
+    SELECT head_of_department FROM departments;
+    SELECT name, head_of_department FROM departments;
+
+3. Selezionare tutti i corsi di laurea magistrale 
+    SELECT * FROM degrees WHERE level = 'magistrale';
+
+4. Selezionare tutti gli studenti che hanno come nome Marco 
+    SELECT * FROM students WHERE name = 'Marco';
+
+5. Selezionare tutti i corsi(insegnamenti) che valgono più o uguale a 12 crediti 
+    SELECT * FROM courses WHERE cfu >= 12;
+    SELECT name,cfu FROM courses WHERE cfu >= 12
+    SELECT * FROM courses WHERE cfu >= 12 ORDER BY cfu;
+    SELECT name,cfu FROM courses WHERE cfu >= 12 ORDER BY cfu;
+
+6. Selezionare tutti i corsi(insegnamenti)  che valgono più di 10 crediti oppure meno di 5 
+    SELECT * FROM courses WHERE cfu > 10 OR cfu < 5;
+    SELECT * FROM courses WHERE cfu > 10 OR cfu < 5 ORDER BY cfu;;
+
+
+7. Selezionare tutti i corsi(insegnamenti)  del primo semestre del primo anno di un qualsiasi corso di 
+laurea 
+    SELECT * FROM courses WHERE year = 1 AND period LIKE 'I %';
+    SELECT * FROM courses WHERE year = 1 AND period NOT LIKE 'II%';
+
+8. Selezionare tutti i corsi(insegnamenti)  che non hanno un sito web 
+    SELECT * FROM courses WHERE website IS NULL;
+    
+
+9. Selezionare tutti gli insegnanti che hanno un numero di telefono 
+    SELECT * FROM teachers WHERE phone IS NOT NULL;    
+ 
+ 
+BONUS: 
+10.  Selezionare tutti gli studenti il cui nome inizia per "E".
+    SELECT * FROM students WHERE name LIKE 'E%';
+
+11.  Contare tutti gli insegnanti che iniziano con “E” (suggerimento: guardate l’operatore COUNT). 
+    SELECT COUNT(id) FROM teachers WHERE name LIKE 'E%';
+
+12.  Contare tutti gli insegnanti che non hanno un numero di telefono.
+    SELECT COUNT(id) FROM teachers WHERE phone IS NULL;
